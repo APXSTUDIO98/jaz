@@ -1,0 +1,208 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fbd3e9; /* Initial background color */
+    font-family: Arial, sans-serif;
+    transition: background-color 5s ease-in-out; /* Smooth transition for background color */
+  }
+  .container {
+    position: relative;
+    text-align: center;
+  }
+  
+  .gift {
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+  
+  #giftClosed {
+    background-image: url('e/c.png');
+    animation: gradualShake 3s ease-in-out 0s 3, intenseShake 0.5s ease-in-out 10s infinite;
+    animation-delay: 1s;
+  }
+  #giftOpen {
+    background-image: url('e/b.png');
+  }
+  
+  .contents {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    z-index: 2;
+  }
+  h1, p, img {
+    opacity: 0;
+  }
+  
+  .fade-in-top {
+    animation: fadeIn 1s ease forwards 0.3s, moveUp 1s ease forwards 0.3s;
+  }
+  
+  .fade-in-middle {
+    animation: fadeIn 1s ease forwards 0.6s, moveUp 1s ease forwards 0.6s;
+  }
+  
+  .fade-in-bottom {
+    animation: fadeIn 1s ease forwards 0.9s, moveUp 1s ease forwards 0.9s;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes moveUp {
+    from {
+      transform: translateY(30px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #surpriseBtn {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background: #ff6f61;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    animation: pulse 1.5s infinite ease-in-out, glow 2s infinite alternate ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 5px #ff6f61;
+    }
+    100% {
+      box-shadow: 0 0 20px #5516b2;
+    }
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+  }
+  @keyframes gradualShake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-2px);
+    }
+    50% {
+      transform: translateX(2px);
+    }
+    75% {
+      transform: translateX(-2px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes intenseShake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes initialShake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-10px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    75% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  #confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--color, #421196);
+  opacity: 0.8;
+  animation: fall 3s linear infinite, sway 2s ease-in-out infinite;
+}
+
+@keyframes fall {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(30px);
+  }
+}
